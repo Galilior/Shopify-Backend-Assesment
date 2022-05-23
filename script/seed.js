@@ -1,6 +1,6 @@
 'use strict'
 
-const {db, models: {User, Stock} } = require('../server/db')
+const {db, models: {Stock} } = require('../server/db')
 
 /**
  * seed - this function clears the database, updates tables to
@@ -10,29 +10,46 @@ async function seed() {
   await db.sync({ force: true }) // clears db and matches models to tables
   console.log('db synced!')
 
-  // Creating Users
-  const users = await Promise.all([
-    User.create({ username: 'cody', password: '123' }),
-    User.create({ username: 'murphy', password: '123' }),
-  ])
-
+  // Creating STock
   const stocks = await Promise.all([
-    Stock.create({ name: 'cody', qty: 123 }),
-    Stock.create({ name: 'cody', qty: 123 }),
+    Stock.create({
+      name: "Strawberry Slush",
+      qty: 100
+  }),
+
+  Stock.create({
+      name: "Banana Blitz",
+      qty: 100
+  }),
+
+  Stock.create({
+      name: "Brown Sugar",
+      qty: 200
+  }),
+
+  Stock.create({
+      name: "Galaxy Swirl",
+      qty: 100
+  }),
+
+  // Stock.create({
+  //     name: "Galaxy Swirl",
+  //     qty: 100
+  // });
+
+  // Stock.create({
+  //     name: "Galaxy Swirl",
+  //     qty: 100
+  // });
   ])
 
-  console.log(`seeded ${users.length} users`)
   console.log(`seeded successfully`)
-  return {
-    users: {
-      cody: users[0],
-      murphy: users[1]
-    },
-    stocks: {
-      cody: users[0],
-      murphy: users[1]
-    }
-  }
+  // return {
+  //   stocks: {
+  //     cody: users[0],
+  //     murphy: users[1]
+  //   }
+  //}
 }
 
 /*

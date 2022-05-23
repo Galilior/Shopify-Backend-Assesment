@@ -4,12 +4,12 @@ import {connect} from 'react-redux'
 /**
  * COMPONENT
  */
-export const Home = props => {
-  const {username} = props
+export const Home = () => {
 
   return (
     <div>
-      <h3>Welcome, {username}</h3>
+      <h3>Welcome!</h3>
+      <p>Take a look at the inventory and feel free to play around with the items</p>
     </div>
   )
 }

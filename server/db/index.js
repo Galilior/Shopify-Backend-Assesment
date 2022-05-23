@@ -2,7 +2,6 @@
 
 const db = require('./db')
 
-const User = require('./models/User')
 const Stock = require('./models/Stock')
 
 //associations could go here!
@@ -10,7 +9,6 @@ const Stock = require('./models/Stock')
 module.exports = {
   db,
   models: {
-    User,
     Stock
   },
 }
